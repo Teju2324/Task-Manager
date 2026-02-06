@@ -1,65 +1,74 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="relative flex min-h-screen items-center justify-center px-5 py-[60px] text-white
+      bg-[radial-gradient(circle_at_top,_#7c8cff_0%,_#667eea_35%,_#764ba2_100%)]">
+      
+      {/* subtle overlay for depth */}
+      <div className="pointer-events-none absolute inset-0 bg-black/10" />
+
+      <div className="relative mx-auto max-w-[900px] text-center">
+        {/* Title */}
+        <h1 className="mb-5 text-[3.2rem] font-extrabold leading-tight">
+          Welcome to 🚀 TaskFlow 👋
+        </h1>
+
+        {/* Tagline */}
+        <p className="mb-7 text-[1.4rem] leading-relaxed opacity-95">
+          A simple and secure{" "}
+          <strong>Personal Task Management System</strong>
+        </p>
+
+        {/* Main Description */}
+        <p className="mb-10 text-[1.1rem] leading-[1.8] opacity-90">
+          <strong>TaskFlow</strong> is a personal task management application that
+          helps users organize their daily work efficiently. It allows users to
+          create, update, delete, and track tasks using clear progress statuses
+          such as <strong>Pending</strong>,{" "}
+          <strong>In Progress</strong>,{" "}
+          <strong>Completed</strong>, and{" "}
+          <strong>Not Done</strong>.
+          <br />
+          <br />
+          This application is developed as a{" "}
+          <strong>college full-stack project</strong> using{" "}
+          <strong>Next.js</strong> for the frontend and{" "}
+          <strong>Supabase</strong> for authentication and database management.
+          It uses <strong>Row Level Security (RLS)</strong> to ensure that users
+          can only access their own data, providing a secure and reliable
+          experience.
+        </p>
+
+        {/* Features */}
+        <div className="mb-11 flex flex-wrap justify-center gap-5">
+          {[
+            "🔐 Secure Authentication",
+            "📝 Task Management",
+            "📊 Status Tracking",
+            "🛡️ Data Privacy with RLS",
+          ].map((item) => (
+            <div
+              key={item}
+              className="rounded-full bg-white/15 px-[18px] py-3 text-[0.95rem] font-medium backdrop-blur-md"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              {item}
+            </div>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+
+        {/* CTA */}
+        <p className="mb-7 text-[1.2rem] opacity-95">
+          Get started by signing in or creating a new account
+        </p>
+
+        <Link
+          href="/login"
+          className="inline-block rounded-lg bg-white px-[45px] py-4 text-[1.15rem] font-semibold text-[#667eea] shadow-lg transition hover:scale-105 active:scale-95"
+        >
+          Get Started →
+        </Link>
+      </div>
     </div>
   );
 }
